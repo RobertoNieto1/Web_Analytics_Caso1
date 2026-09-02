@@ -70,3 +70,50 @@ ggplot(datos_semana, aes(x = 1:nrow(datos_semana), y = `Lbs. Sold`)) +
     x = "Semana",
     y = "Lbs. Sold"
   )
+
+View(datos_semana)
+summary(datos_semana)
+cor(datos_semana[,c("Unique Visits","Revenue","Profit","Lbs. Sold")])
+ggplot(datos_semana, aes(x = `Lbs. Sold`, y = Revenue)) +
+  geom_point() +
+  geom_smooth(method = "lm") +
+  labs(
+    title = "Relación entre libras vendidas e ingresos",
+    x = "Lbs. Sold",
+    y = "Revenue"
+  )
+ggplot(datos_semana, aes(x = `Unique Visits`, y = Revenue)) +
+  geom_point() +
+  geom_smooth(method = "lm") +
+  labs(
+    title = "Relación entre visitas únicas e ingresos",
+    x = "Unique Visits",
+    y = "Revenue"
+  )
+ggplot(datos_semana, aes(x = Revenue, y = Profit)) +
+  geom_point() +
+  geom_smooth(method = "lm") +
+  labs(
+    title = "Relación entre ingresos y utilidad",
+    x = "Revenue",
+    y = "Profit"
+  )
+summary(demographics)
+table(demographics$`All Traffic Sources`)
+table(demographics$`All Traffic Sources`)
+traffic_sources <- sort(table(demographics$`All Traffic Sources`), decreasing = TRUE)
+
+head(traffic_sources, 10)
+traffic_sources2 <- sort(table(demographics$`Traffic Sources`), decreasing = TRUE)
+
+head(traffic_sources2, 10)
+names(demographics)
+table(demographics$`...3`)
+ggplot(datos_semana, aes(x = 1:nrow(datos_semana))) +
+  geom_line(aes(y = Revenue, color = "Revenue")) +
+  geom_line(aes(y = Profit, color = "Profit")) +
+  labs(
+    title = "Evolución semanal de ingresos y utilidad",
+    x = "Semana",
+    y = "Valor"
+  )
